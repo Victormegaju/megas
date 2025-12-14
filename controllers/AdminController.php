@@ -217,10 +217,14 @@ class AdminController {
         
         // Handle logo upload
         if (isset($_FILES['logo']) && $_FILES['logo']['error'] === UPLOAD_ERR_OK) {
-            $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
             $fileType = $_FILES['logo']['type'];
             
-            if (in_array($fileType, $allowedTypes)) {
+            if (in_array($fileType, Constants::ALLOWED_IMAGE_TYPES)) {
+                if ($_FILES['logo']['size'] > Constants::MAX_LOGO_SIZE) {
+                    echo json_encode(['error' => 'File too large. Maximum size is 2MB']);
+                    return;
+                }
+                
                 $extension = pathinfo($_FILES['logo']['name'], PATHINFO_EXTENSION);
                 $filename = 'logo_' . time() . '.' . $extension;
                 $uploadPath = __DIR__ . '/../uploads/logo/' . $filename;

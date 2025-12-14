@@ -334,8 +334,10 @@ function handleImageSelect(event) {
         return;
     }
     
-    if (file.size > 2 * 1024 * 1024) {
-        alert('A imagem deve ter no máximo 2MB');
+    // Max file size: 2MB
+    const maxSize = <?php echo Constants::MAX_CHAT_IMAGE_SIZE; ?>;
+    if (file.size > maxSize) {
+        alert('A imagem deve ter no máximo ' + (maxSize / 1024 / 1024) + 'MB');
         return;
     }
     

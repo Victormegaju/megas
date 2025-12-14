@@ -100,15 +100,16 @@ class User {
     }
     
     private function insert() {
+        if (!isset($this->password_hash)) {
+            throw new Exception('Password hash must be set before creating user');
+        }
+        
         $sql = 'INSERT INTO users (username, password_hash, role, created_by, expiration_date, is_active, is_test_user) 
                 VALUES (?, ?, ?, ?, ?, ?, ?)';
         
-        // This should be set before calling save
-        $passwordHash = $this->password_hash ?? password_hash('changeme', PASSWORD_DEFAULT);
-        
         $this->db->execute($sql, [
             $this->username,
-            $passwordHash,
+            $this->password_hash,
             $this->role,
             $this->created_by,
             $this->expiration_date,
