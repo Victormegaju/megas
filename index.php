@@ -93,6 +93,19 @@ try {
     
     // Route to appropriate controller based on role and path
     $router = new Router($db, $user);
+    
+    // If accessing root with authenticated user, redirect to appropriate dashboard
+    if ($requestUri === '/') {
+        if ($user->isAdmin()) {
+            header('Location: /admin/dashboard');
+        } elseif ($user->isRevenda()) {
+            header('Location: /revenda/dashboard');
+        } else {
+            header('Location: /chat');
+        }
+        exit;
+    }
+    
     $router->route($requestUri, $requestMethod);
     
 } catch (Exception $e) {

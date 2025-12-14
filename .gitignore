@@ -1,0 +1,24 @@
+# Configuration
+config.php
+
+# Uploads
+uploads/logo/*
+!uploads/logo/.gitkeep
+
+# Logs
+*.log
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+tmp/
+temp/
