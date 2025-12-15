@@ -1,0 +1,25 @@
+{
+  "Versão 4.5": {
+    "date": "20/03/2024",
+    "feat": {
+      "0": "adicione o que quiser ."
+    },
+    "fix": {
+      "0": "isso e bom."
+    },
+    "refactor": {
+      "0": "isso e melhor rsrrs."
+    },
+    "style": {},
+    "chore": {}
+  },
+
+  "Versões Anteriores": {
+    "date": "",
+    "feat": {},
+    "fix": {},
+    "refactor": {},
+    "style": {},
+    "chore": {}
+  }
+}
