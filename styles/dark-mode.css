@@ -1,3 +1,10 @@
+/* Modo claro - Fundo claro padrão */
+body,
+body.light-mode {
+    background-color: #f0f2f7 !important;
+    color: #868ba1 !important;
+}
+
 body.dark-mode {
     background-color: #333 !important;
     color: #fff !important;

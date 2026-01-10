@@ -4,7 +4,7 @@ require_once __DIR__ . '/../db/Conexao.php';
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="utf-8">
